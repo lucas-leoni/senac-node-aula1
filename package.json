@@ -1,0 +1,23 @@
+{
+  "name": "aula1",
+  "version": "0.0.1",
+  "description": "Exercícios das aulas de Node.js do Programa Jovem Programador do Senac",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucas-leoni/aula1.git"
+  },
+  "author": "Lucas Leoni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucas-leoni/aula1/issues"
+  },
+  "homepage": "https://github.com/lucas-leoni/aula1#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
