@@ -3,15 +3,12 @@ import express from 'express';
 const app = express();
 const port = 3000;
 
-app.get('/api/:userId/pessoa/:personId', (req, res) => {
-  const nome = req.query.nome;
-  const userId = req.params.userId;
-  const personId = req.params.personId;
+app.get('/api/', (req, res) => {
+  const num1 = parseFloat(req.query.num1);
+  const num2 = parseFloat(req.query.num2);
 
   res.json({
-    message:
-      `Você passou queryParam nome: ${nome}, ` +
-      `routeParam userId: ${userId}, routeParam personId: ${personId}`,
+    message: `Número 1: ${num1}\n Número 2: ${num2}`,
   });
 });
 
