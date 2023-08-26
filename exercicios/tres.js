@@ -1,4 +1,4 @@
-// 1. FUP que solicite dois números reais, realize a soma. Imprima o resultado.
+// 3. FUP que solicite o peso de 5 pessoas e calcule a média. Imprima o resultado.
 
 function run(app) {
   app.post('/api/exercicio1', (req, res) => {
@@ -14,4 +14,4 @@ function somar(num1, num2) {
   return num1 + num2;
 }
 
-module.exports = { run, somar };
+module.exports = { run };
