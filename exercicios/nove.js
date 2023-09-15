@@ -6,14 +6,23 @@ seja igual ou superior a 5 e inferior a 7, ou a mensagem “Reprovado”, caso a
 
 function run(app) {
   app.post('/api/exercicio9', (req, res) => {
-    const notas = req.body.notas;
-    const { msg, result } = calculaMedia(notas);
+    try {
+      const notas = req.body.notas;
+      const { msg, result } = calculaMedia(notas);
 
-    res.json({ message: msg, media: result });
+      res.json({ message: msg, media: result });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: 'Deu ruim' });
+    }
   });
 }
 
 function calculaMedia(notas) {
+  if (notas.length !== 3) {
+    throw new Error('Favor informar 3 notas');
+  }
+
   const media = (notas[0] + notas[1] + notas[2]) / 3;
 
   if (media >= 7) {

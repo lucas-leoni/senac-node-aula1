@@ -5,15 +5,24 @@ Imprima o valor que o trabalhador deverá receber ao final do mês.
 
 function run(app) {
   app.post('/api/exercicio2', (req, res) => {
-    const result = multiplicar(req.body.vl_hora, req.body.qtd_horas);
+    try {
+      const result = multiplicar(req.body.vl_hora, req.body.qtd_horas);
 
-    res.status(200).json({
-      message: `Salário: R$ ${result}`,
-    });
+      res.status(200).json({
+        message: `Salário: R$ ${result}`,
+      });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: 'Deu ruim' });
+    }
   });
 }
 
 function multiplicar(vl_hora, qtd_horas) {
+  if (isNaN(vl_hora) || isNaN(qtd_horas)) {
+    throw new Error('Favor informar números');
+  }
+
   return vl_hora * qtd_horas;
 }
 
